@@ -15,6 +15,7 @@ export async function once({defaultRegion,kv}:{defaultRegion?:string,kv?:Deno.Kv
       Deno.exit(0)
     }
   } else {
+    console.log("First run")
     await kv.set(["deno-deploy-once","region"],dr)
   }
 }
