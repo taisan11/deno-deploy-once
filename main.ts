@@ -11,8 +11,7 @@ export async function once({defaultRegion,kv}:{defaultRegion?:string,kv?:Deno.Kv
   console.log("region:",region)
   if (region.value) { 
     if (region.value != dr) {
-      console.log("Already ran in this region")
-      Deno.exit(0)
+      throw new Error("Already ran in this region")
     }
   } else {
     console.log("First run")
