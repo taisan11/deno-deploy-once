@@ -9,7 +9,7 @@ export async function once({defaultRegion,kv}:{defaultRegion?:string,kv?:Deno.Kv
   kv = kv || await Deno.openKv()
   const region = await kv.get(["deno-deploy-once","region"])
   console.log("region:",region)
-  if (region) { 
+  if (region.value) { 
     if (region.value === dr) {
       console.log("Already ran in this region")
       Deno.exit(0)
