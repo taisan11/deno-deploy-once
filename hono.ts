@@ -21,7 +21,7 @@ export async function once({defaultRegion,kv}:{defaultRegion?:string,kv?:Deno.Kv
     }
     return createMiddleware(async (c,next) => {
         if (region.value && region.value != Deno.env.get("DENO_REGION")) {
-            throw new HTTPException(409, { message: "Already ran in this region" })
+            throw new HTTPException(409, { message: "No run this region" })
         }
         await next()
         return
